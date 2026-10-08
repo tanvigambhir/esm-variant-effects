@@ -1,0 +1,37 @@
+{
+  "dms_id": "BLAT_ECOLX_Stiffler_2015",
+  "n_single_mutants": 4996,
+  "n_positions": 263,
+  "spearman_by_model": {
+    "35M": 0.557,
+    "150M": 0.66,
+    "650M": 0.731
+  },
+  "spearman_95ci": {
+    "35M": [
+      0.537,
+      0.577
+    ],
+    "150M": [
+      0.644,
+      0.677
+    ],
+    "650M": [
+      0.717,
+      0.746
+    ]
+  },
+  "best_model": "650M",
+  "position_level_rho": 0.769,
+  "median_within_position_rho": 0.625,
+  "weakest_wt_residues": {
+    "H": 0.082,
+    "W": 0.24,
+    "Y": 0.422
+  },
+  "weakest_mt_residues": {
+    "C": 0.426,
+    "P": 0.636,
+    "F": 0.637
+  }
+}
