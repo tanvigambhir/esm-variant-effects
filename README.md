@@ -24,7 +24,7 @@ With no training and no lab data, ESM-2 650M ranks 4,996 single mutants across 2
 | 150M | 0.66 | 0.64–0.68 |
 | 650M | **0.73** | 0.72–0.75 |
 
-**Bigger is better here.** Accuracy rises at every step (+0.17 ρ from 35M to 650M), and the bootstrap confidence intervals do not overlap. Scaling gains are not guaranteed across proteins (ProteinGym reports them flattening or reversing on some assays), so this is a result for TEM-1, not a general law.
+**Bigger model is better here.** Accuracy rises at every step (+0.17 ρ from 35M to 650M), and the bootstrap confidence intervals do not overlap. Scaling gains are not guaranteed across proteins (ProteinGym reports them flattening or reversing on some assays), so this is a result for TEM-1, not a general law.
 
 ![Model size and scatter](figures/model_size_and_scatter.png)
 
@@ -34,7 +34,7 @@ The scatter shows two regimes. Mutations the model scores very negatively are re
 
 ## Where the model fails
 
-**It knows *where* better than *what*.** Ranking positions by average sensitivity gives ρ = 0.77, but ranking substitutions within a single position gives a median ρ of only 0.62. The model reliably finds the intolerant sites, but is less sure which replacement is worst at a given site.
+**It knows where better than what.** Ranking positions by average sensitivity gives ρ = 0.77, but ranking substitutions within a single position gives a median ρ of only 0.62. The model reliably finds the intolerant sites, but is less sure which replacement is worst at a given site.
 
 **It underestimates the protein's ends.** Of the 8 positions the model rates most tolerant relative to the assay, 7 lie at the termini of the mature protein: positions 27–44 near the N-terminus and 248–286 near the C-terminus, including the final residue, W286. Termini vary a lot across evolution, so a model trained on natural sequences learns to treat them as permissive. In TEM-1 these regions are structured and essential for resistance.
 
@@ -50,7 +50,7 @@ The scatter shows two regimes. Mutations the model scores very negatively are re
 
 ## Reproduce
 
-Open the notebook in Colab, set **Runtime → T4 GPU**, and run all cells (~5–10 min). To try another protein, change `DMS_ID` to any ID in ProteinGym's `DMS_substitutions.csv`.
+Open the notebook in Colab, set **Runtime → T4 GPU**, and run all cells. To try another protein, change `DMS_ID` to any ID in ProteinGym's `DMS_substitutions.csv`.
 
 ```
 esm2_zero_shot_dms.ipynb   # full pipeline
